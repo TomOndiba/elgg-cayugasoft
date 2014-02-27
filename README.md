@@ -1,7 +1,6 @@
 ELGG CAYUGASOFT EDITION
 =======================
-This is modification for [elgg][1] social network engine for [Cayugasoft][2] company.
+This is modification for [elgg][1] social network engine for our company.
 
 
   [1]: http://elgg.org/
-  [2]: http://cayugasoft.com/
