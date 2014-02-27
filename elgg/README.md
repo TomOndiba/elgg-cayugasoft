@@ -1,3 +1,5 @@
+DEFAULT README FOR EGGL
+======================
 Elgg
 Copyright (c) 2008-2013 See COPYRIGHT.txt
 
