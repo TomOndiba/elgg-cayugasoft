@@ -1,5 +1,4 @@
 # Elgg htaccess directives
-
 <Files "htaccess_dist">
 	order allow,deny
 	deny from all
