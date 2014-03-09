@@ -18,10 +18,26 @@ elgg_register_action('levelstatus/save', elgg_get_plugins_path() . 'levelstatus/
  * urls handler
  */
 function levelstatus_page_handler($segments) {
+
+    /**
+     * add new status
+     *
+     * @route levelstatus/add
+     *
+     * @return bool
+     */
     if($segments[0] == 'add') {
         include elgg_get_plugins_path() . 'levelstatus/pages/levelstatus/add.php';
         return true;
     }
+
+    /**
+     * list of all statuses
+     *
+     * @route levelstatus/all
+     *
+     * @return bool
+     */
     if($segments[0] == 'all') {
         include elgg_get_plugins_path() . 'levelstatus/pages/levelstatus/all.php';
         return true;
