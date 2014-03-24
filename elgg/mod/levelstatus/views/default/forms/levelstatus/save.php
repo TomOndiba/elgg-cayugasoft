@@ -5,7 +5,7 @@
  
 <div>
     <label><?php echo elgg_echo("description"); ?></label><br />
-    <?php echo elgg_view('input/longtext',array('name' => 'body')); ?>
+    <?php echo elgg_view('input/longtext',array('name' => 'description')); ?>
 </div>
  
 <div>
