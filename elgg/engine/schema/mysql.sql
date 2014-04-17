@@ -414,6 +414,7 @@ CREATE TABLE `prefix_users_entity` (
   `prev_last_action` int(11) NOT NULL DEFAULT '0',
   `last_login` int(11) NOT NULL DEFAULT '0',
   `prev_last_login` int(11) NOT NULL DEFAULT '0',
+  `day_count` datetime NOT NULL DEFAULT '0',
   PRIMARY KEY (`guid`),
   UNIQUE KEY `username` (`username`),
   KEY `password` (`password`),

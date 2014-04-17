@@ -46,7 +46,7 @@ function get_user_entity_as_row($guid) {
  * @return bool
  * @access private
  */
-function create_user_entity($guid, $name, $username, $password, $salt, $email, $language, $code) {
+function create_user_entity($guid, $name, $username, $password, $salt, $email, $language, $code,$day_count) {
 	global $CONFIG;
 
 	$guid = (int)$guid;
@@ -57,6 +57,7 @@ function create_user_entity($guid, $name, $username, $password, $salt, $email, $
 	$email = sanitise_string($email);
 	$language = sanitise_string($language);
 	$code = sanitise_string($code);
+    $day_count=sanitise_string($day_count);
 
 	$row = get_entity_as_row($guid);
 	if ($row) {
@@ -65,7 +66,7 @@ function create_user_entity($guid, $name, $username, $password, $salt, $email, $
 		if ($exists = get_data_row($query)) {
 			$query = "UPDATE {$CONFIG->dbprefix}users_entity
 				SET name='$name', username='$username', password='$password', salt='$salt',
-				email='$email', language='$language', code='$code'
+				email='$email', language='$language', code='$code',day_count='$day_count'
 				WHERE guid = $guid";
 
 			$result = update_data($query);
@@ -81,8 +82,8 @@ function create_user_entity($guid, $name, $username, $password, $salt, $email, $
 		} else {
 			// Exists query failed, attempt an insert.
 			$query = "INSERT into {$CONFIG->dbprefix}users_entity
-				(guid, name, username, password, salt, email, language, code)
-				values ($guid, '$name', '$username', '$password', '$salt', '$email', '$language', '$code')";
+				(guid, name, username, password, salt, email, language, code,day_count)
+				values ($guid, '$name', '$username', '$password', '$salt', '$email', '$language', '$code','$day_count')";
 
 			$result = insert_data($query);
 			if ($result !== false) {
@@ -909,22 +910,22 @@ function validate_email_address($address) {
  * @return int|false The new user's GUID; false on failure
  * @throws RegistrationException
  */
-function register_user($username, $password, $name, $email,
+function register_user($username, $password, $name, $email,$day_count,
 $allow_multiple_emails = false, $friend_guid = 0, $invitecode = '') {
 
 	// no need to trim password.
 	$username = trim($username);
-	$name = trim(strip_tags($name));
+    $name = trim(strip_tags($name));
 	$email = trim($email);
 
 	// A little sanity checking
 	if (empty($username)
 	|| empty($password)
 	|| empty($name)
-	|| empty($email)) {
+	|| empty($email)
+    || empty($day_count)) {
 		return false;
 	}
-
 	// Make sure a user with conflicting details hasn't registered and been disabled
 	$access_status = access_get_show_hidden_status();
 	access_show_hidden_entities(true);
@@ -962,8 +963,8 @@ $allow_multiple_emails = false, $friend_guid = 0, $invitecode = '') {
 	$user->owner_guid = 0; // Users aren't owned by anyone, even if they are admin created.
 	$user->container_guid = 0; // Users aren't contained by anyone, even if they are admin created.
 	$user->language = get_current_language();
-	$user->save();
-
+    $user->day_count = $day_count;
+    $user->save();
 	// If $friend_guid has been set, make mutual friends
 	if ($friend_guid) {
 		if ($friend_user = get_user($friend_guid)) {

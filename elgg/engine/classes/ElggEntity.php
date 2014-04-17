@@ -34,6 +34,7 @@
  * @property int    $access_id      Specifies the visibility level of this entity
  * @property int    $time_created   A UNIX timestamp of when the entity was created (read-only, set on first save)
  * @property int    $time_updated   A UNIX timestamp of when the entity was last updated (automatically updated on save)
+ * @property datetime $day_count   day in company
  * @property-read string $enabled
  */
 abstract class ElggEntity extends ElggData implements

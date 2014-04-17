@@ -14,7 +14,7 @@ $password = get_input('password', null, false);
 $password2 = get_input('password2', null, false);
 $email = get_input('email');
 $name = get_input('name');
-
+$day_count = $date=date('Y-m-d', strtotime(get_input('day_count')))." ".date("H:i:s");
 $admin = get_input('admin');
 if (is_array($admin)) {
 	$admin = $admin[0];
@@ -33,7 +33,7 @@ if (strcmp($password, $password2) != 0) {
 
 // For now, just try and register the user
 try {
-	$guid = register_user($username, $password, $name, $email, TRUE);
+	$guid = register_user($username, $password, $name, $email,$day_count, TRUE);
 
 	if ($guid) {
 		$new_user = get_entity($guid);
@@ -54,6 +54,8 @@ try {
 			elgg_get_site_entity()->url,
 			$username,
 			$password,
+            $day_count,
+
 		));
 
 		notify_user($new_user->guid, elgg_get_site_entity()->guid, $subject, $body);

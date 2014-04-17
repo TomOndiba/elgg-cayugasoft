@@ -260,6 +260,7 @@ $english = array(
 	'loginusername' => "Username or email",
 	'password' => "Password",
 	'passwordagain' => "Password (again for verification)",
+    'day_count' => "Counter of days worked in the company",
 	'admin_option' => "Make this user an admin?",
 
 /**

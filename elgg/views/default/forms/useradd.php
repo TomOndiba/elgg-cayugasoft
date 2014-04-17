@@ -7,7 +7,7 @@
  * 
  */
 
-$name = $username = $email = $password = $password2 = $admin = '';
+$name = $username = $email = $password = $password2 = $admin = $day_count= '';
 
 if (elgg_is_sticky_form('useradd')) {
 	extract(elgg_get_sticky_values('useradd'));
@@ -64,6 +64,16 @@ if (elgg_is_sticky_form('useradd')) {
 	?>
 </div>
 <div>
+    <label><?php echo elgg_echo('day_count');?></label><br />
+    <?php
+    echo elgg_view('input/text', array(
+        'name' => 'day_count',
+        'value' => date("m/d/Y"),
+        'readonly'=>true,
+    ));
+    ?>
+</div>
+<div>
 <?php 
 	echo elgg_view('input/checkboxes', array(
 		'name' => "admin",
@@ -76,3 +86,9 @@ if (elgg_is_sticky_form('useradd')) {
 <div class="elgg-foot">
 	<?php echo elgg_view('input/submit', array('value' => elgg_echo('register'))); ?>
 </div>
+<script type="text/javascript">
+    $(document).ready(function()
+    {
+        $("input[name=day_count]").datepicker();
+    })
+</script>
