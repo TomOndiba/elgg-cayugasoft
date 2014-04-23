@@ -11,13 +11,13 @@ elgg_register_event_handler('init', 'system', 'initialize_plugin');
 
 elgg_register_action('levelstatus/save', elgg_get_plugins_path() . 'levelstatus/actions/levelstatus/save.php', 'admin');
 
+elgg_register_entity_url_handler('object', 'levelstatus', 'levelstatus_url');
 
 
 /**
  * urls handler
  */
 function levelstatus_page_handler($segments) {
-
     /**
      * add new status
      *
@@ -42,6 +42,19 @@ function levelstatus_page_handler($segments) {
         return true;
     }
 
+    /**
+     * view object page
+     *
+     * @route levelstatus/view/<title>
+     *
+     * @return bool
+     */
+    if($segments[0] == 'view') {
+        set_input('guid', $segments[1]);
+        include elgg_get_plugins_path() . 'levelstatus/pages/levelstatus/view.php';
+        return true;
+    }
+
     return false;
 }
 elgg_register_page_handler('levelstatus', 'levelstatus_page_handler');
@@ -60,3 +73,10 @@ if($user_object = get_loggedin_user()) {
     }
 }
 
+function levelstatus_url($entity) {
+	global $CONFIG;
+
+	$title = $entity->title;
+	$title = elgg_get_friendly_title($title);
+	return $CONFIG->url . "levelstatus/view/" . $entity->getGUID() . "/" . $title;
+}
