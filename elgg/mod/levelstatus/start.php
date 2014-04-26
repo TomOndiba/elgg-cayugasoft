@@ -11,6 +11,7 @@ elgg_register_event_handler('init', 'system', 'initialize_plugin');
 
 elgg_register_action('levelstatus/save', elgg_get_plugins_path() . 'levelstatus/actions/levelstatus/save.php', 'admin');
 elgg_register_action('levelstatus/delete', elgg_get_plugins_path() . 'levelstatus/actions/levelstatus/delete.php', 'admin');
+elgg_register_action('levelstatus/edit', elgg_get_plugins_path() . 'levelstatus/actions/levelstatus/edit.php', 'admin');
 
 elgg_register_entity_url_handler('object', 'levelstatus', 'levelstatus_url');
 
@@ -19,6 +20,7 @@ elgg_register_entity_url_handler('object', 'levelstatus', 'levelstatus_url');
  * urls handler
  */
 function levelstatus_page_handler($segments) {
+
     /**
      * add new status
      *
@@ -28,6 +30,19 @@ function levelstatus_page_handler($segments) {
      */
     if($segments[0] == 'add') {
         include elgg_get_plugins_path() . 'levelstatus/pages/levelstatus/add.php';
+        return true;
+    }
+
+    /**
+     * update status
+     *
+     * @route levelstatus/update
+     *
+     * @return bool
+     */
+    if($segments[0] == 'update') {
+        set_input('guid', $segments[1]);
+        include elgg_get_plugins_path() . 'levelstatus/pages/levelstatus/update.php';
         return true;
     }
 
