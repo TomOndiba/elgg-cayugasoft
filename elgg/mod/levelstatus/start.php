@@ -9,8 +9,19 @@ function initialize_plugin() {
 
 elgg_register_event_handler('init', 'system', 'initialize_plugin');
 
+/**
+ * save action. allows to save new entity
+ */
 elgg_register_action('levelstatus/save', elgg_get_plugins_path() . 'levelstatus/actions/levelstatus/save.php', 'admin');
+
+/**
+ * delete action. allows to delete entity
+ */
 elgg_register_action('levelstatus/delete', elgg_get_plugins_path() . 'levelstatus/actions/levelstatus/delete.php', 'admin');
+
+/**
+ * edit action. allows to update exist entity
+ */
 elgg_register_action('levelstatus/edit', elgg_get_plugins_path() . 'levelstatus/actions/levelstatus/edit.php', 'admin');
 
 elgg_register_entity_url_handler('object', 'levelstatus', 'levelstatus_url');
