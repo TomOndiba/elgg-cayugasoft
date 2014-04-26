@@ -12,7 +12,7 @@ $sidebar = '';
 /**
  * registrate a new item in the sidebar
  */
-add_submenu_item('Remove status', 'levelstatus/add');
+add_submenu_item('Remove status', 'levelstatus/delete/' . $status->guid);
 
 /**
  * add title to the body
