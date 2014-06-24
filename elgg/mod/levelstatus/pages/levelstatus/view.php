@@ -10,9 +10,10 @@ $status = get_entity(get_input('guid'));
 $sidebar = '';
 
 /**
- * registrate a new item in the sidebar
+ * registrate a new items in the sidebar
  */
-add_submenu_item('Remove status', 'levelstatus/add');
+add_submenu_item('Remove status', 'levelstatus/delete/' . $status->guid);
+add_submenu_item('Edit status', 'levelstatus/update/' . $status->guid);
 
 /**
  * add title to the body
