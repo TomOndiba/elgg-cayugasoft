@@ -3,6 +3,7 @@ $title = get_input('title');
 $description= get_input('image');
 $description= get_input('description');
 $tags= string_to_tag_array(get_input('tags'));
+$cost= get_input('cost');
 
 $badges_entry = new ElggObject();
 $badges_entry->subtype = 'badges';
@@ -13,6 +14,7 @@ $badges_entry->description = $description;
 $badges_entry->access_id = ACCESS_PUBLIC;
 $badges_entry->owner_guid = elgg_get_logged_in_user_guid();
 $badges_entry->tags = $tags;
+$badges_entry->cost = $cost;
 if(!empty($_FILES['img_upload']['tmp_name']))
 {
 //    if(!in_array($_FILES['img_upload']['type'] , array("image/jpeg","image/jpg","image/png","image/gif")))
@@ -114,6 +116,9 @@ if(!empty($_FILES['img_upload']['tmp_name']))
         }
     }
 }
+else
+    $badges_entry_guid = $badges_entry->save();
+
 //$badges_entry_guid = $badges_entry->save();
 
 if ($badges_entry_guid) {

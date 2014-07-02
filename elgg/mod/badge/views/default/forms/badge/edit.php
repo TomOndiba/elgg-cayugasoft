@@ -30,9 +30,14 @@
     <label><?php echo elgg_echo("tags"); ?></label><br />
     <?php echo elgg_view('input/tags',array('name' => 'tags', 'value' => $entity->tags)); ?>
 </div>
-    
+
+<div>
+    <label><?php echo elgg_echo("cost"); ?></label><br />
+    <?php echo elgg_view('input/text',array('name' => 'cost', 'value' => $entity->cost)); ?>
+</div>
+
     <?php echo elgg_view('input/hidden', array('name' => 'guid', 'value' => $entity->guid)); ?>
- 
+
 <div>
     <?php echo elgg_view('input/submit', array('value' => elgg_echo('edit'))); ?>
 </div>

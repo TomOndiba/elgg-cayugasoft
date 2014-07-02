@@ -10,6 +10,11 @@
 //elgg_register_event_handler('init', 'system', 'initialize_plugin');
 
 /**
+ * setbadge action. allows to save badge and user relationship
+ */
+elgg_register_action('badge/setbadge', elgg_get_plugins_path() . 'badge/actions/badge/setbadge.php', 'admin');
+
+/**
  * save action. allows to save new entity
  */
 elgg_register_action('badge/save', elgg_get_plugins_path() . 'badge/actions/badge/save.php', 'admin');

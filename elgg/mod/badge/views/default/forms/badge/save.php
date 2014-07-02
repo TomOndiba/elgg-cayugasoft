@@ -5,7 +5,7 @@
 
 <div>
     <label><?php echo elgg_echo("Image"); ?></label><br />
-    <?php echo elgg_view('input/file', array('name' => 'img_upload','value' => $entity->image)); ?>
+    <?php echo elgg_view('input/file', array('name' => 'img_upload')); ?>
 </div>
 
 <div>
@@ -17,7 +17,12 @@
     <label><?php echo elgg_echo("tags"); ?></label><br />
     <?php echo elgg_view('input/tags',array('name' => 'tags')); ?>
 </div>
- 
+
+<div>
+    <label><?php echo elgg_echo("cost"); ?></label><br />
+    <?php echo elgg_view('input/text',array('name' => 'text')); ?>
+</div>
+
 <div>
     <?php echo elgg_view('input/submit', array('value' => elgg_echo('save'))); ?>
 </div>

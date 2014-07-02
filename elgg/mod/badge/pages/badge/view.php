@@ -28,11 +28,19 @@ $body .= elgg_view('output/longtext', array(
 ));
 
 /**
+ * add cost
+ */
+$body .= elgg_view('output/text', array(
+    'value' => "Points: ".$badge->cost,
+));
+
+/**
  * add tags
  */
 $body .= elgg_view('output/tags', array(
     'tags' => $badge->tags,
 ));
+
 
 /**
  * create page with 'one_sidebar' layout
