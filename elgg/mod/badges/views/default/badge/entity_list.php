@@ -22,13 +22,19 @@
                 <div>&nbsp;Points:&nbsp;<?php echo $entity->cost; ?></div>
             <div style="clear:both"></div>
         </div>
+        <?php
+        $user=elgg_get_logged_in_user_entity();
+        if($user && $user->isAdmin()) {
+        ?>
         <div style="float: right">
 
             <?php
+
                 echo elgg_view_form('badge/setbadge', array(), array('entity'=>$entity));
             ?>
 
         </div>
+        <?php } ?>
         <div style="clear:both"></div>
     </li>
     <hr>

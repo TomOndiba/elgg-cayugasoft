@@ -12,8 +12,12 @@ $sidebar = '';
 /**
  * registrate a new items in the sidebar
  */
-add_submenu_item('Remove badge', 'badge/delete/' . $badge->guid);
-add_submenu_item('Edit badge', 'badge/update/' . $badge->guid);
+$user=elgg_get_logged_in_user_entity();
+if($user && $user->isAdmin())
+{
+    add_submenu_item('Remove badge', 'badges/delete/' . $badge->guid);
+    add_submenu_item('Edit badge', 'badges/update/' . $badge->guid);
+}
 
 /**
  * add title to the body

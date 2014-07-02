@@ -7,7 +7,10 @@ gatekeeper();
 /**
  * add item to the sidebar for geting list of all entities
  */
-add_submenu_item('Show all badges', 'badge/all');
+$user=elgg_get_logged_in_user_entity();
+if($user && $user->isAdmin())
+    add_submenu_item('Show all badges', 'badges/all');
+else forward("badges/all");
 
 /**
  * page title

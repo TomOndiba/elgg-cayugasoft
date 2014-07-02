@@ -2,7 +2,9 @@
 /**
  * add item for adding new record to the sidebar
  */
-add_submenu_item('Add new badge', 'badge/add');
+$user=elgg_get_logged_in_user_entity();
+if($user && $user->isAdmin())
+    add_submenu_item('Add new badge', 'badges/add');
 
 $entities = elgg_get_entities(array(
     'type' => 'object',

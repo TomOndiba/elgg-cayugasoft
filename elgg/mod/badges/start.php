@@ -3,33 +3,38 @@
  * get ElggUser object for current user
  */
 
-//function initialize_plugin() {
-//
-//}
-//
-//elgg_register_event_handler('init', 'system', 'initialize_plugin');
+elgg_register_event_handler('init', 'system', 'badges_init');
 
+/**
+ * Initialize page handler and site menu item
+ */
+function badges_init() {
+    elgg_register_page_handler('badges/all', 'badges_page_handler');
+
+    $item = new ElggMenuItem('Badges', elgg_echo('Badges'), 'badges/all');
+    elgg_register_menu_item('site', $item);
+}
 /**
  * setbadge action. allows to save badge and user relationship
  */
-elgg_register_action('badge/setbadge', elgg_get_plugins_path() . 'badge/actions/badge/setbadge.php', 'admin');
+elgg_register_action('badge/setbadge', elgg_get_plugins_path() . 'badges/actions/badge/setbadge.php', 'admin');
 
 /**
  * save action. allows to save new entity
  */
-elgg_register_action('badge/save', elgg_get_plugins_path() . 'badge/actions/badge/save.php', 'admin');
+elgg_register_action('badge/save', elgg_get_plugins_path() . 'badges/actions/badge/save.php', 'admin');
 
 /**
  * delete action. allows to delete entity
  */
-elgg_register_action('badge/delete', elgg_get_plugins_path() . 'badge/actions/badge/delete.php', 'admin');
+elgg_register_action('badge/delete', elgg_get_plugins_path() . 'badges/actions/badge/delete.php', 'admin');
 
 /**
  * edit action. allows to update exist entity
  */
-elgg_register_action('badge/edit', elgg_get_plugins_path() . 'badge/actions/badge/edit.php', 'admin');
+elgg_register_action('badge/edit', elgg_get_plugins_path() . 'badges/actions/badge/edit.php', 'admin');
 
-elgg_register_entity_url_handler('object', 'badge', 'badge_url');
+elgg_register_entity_url_handler('object', 'badges', 'badge_url');
 
 
 /**
@@ -45,7 +50,7 @@ function badge_page_handler($segments) {
      * @return bool
      */
     if($segments[0] == 'add') {
-        include elgg_get_plugins_path() . 'badge/pages/badge/add.php';
+        include elgg_get_plugins_path() . 'badges/pages/badge/add.php';
         return true;
     }
 
@@ -58,7 +63,7 @@ function badge_page_handler($segments) {
      */
     if($segments[0] == 'update') {
         set_input('guid', $segments[1]);
-        include elgg_get_plugins_path() . 'badge/pages/badge/update.php';
+        include elgg_get_plugins_path() . 'badges/pages/badge/update.php';
         return true;
     }
 
@@ -70,7 +75,7 @@ function badge_page_handler($segments) {
      * @return bool
      */
     if($segments[0] == 'all') {
-        include elgg_get_plugins_path() . 'badge/pages/badge/all.php';
+        include elgg_get_plugins_path() . 'badges/pages/badge/all.php';
         return true;
     }
 
@@ -83,7 +88,7 @@ function badge_page_handler($segments) {
      */
     if($segments[0] == 'view') {
         set_input('guid', $segments[1]);
-        include elgg_get_plugins_path() . 'badge/pages/badge/view.php';
+        include elgg_get_plugins_path() . 'badges/pages/badge/view.php';
         return true;
     }
 
@@ -106,9 +111,8 @@ function badge_page_handler($segments) {
             if(!empty($some))
             {
                 if($some[0]->getEntity()->exists())
-                {
                     $some[0]->getEntity()->delete();
-                }
+
             }
         }
 
@@ -133,14 +137,14 @@ function badge_page_handler($segments) {
 
     return false;
 }
-elgg_register_page_handler('badge', 'badge_page_handler');
+elgg_register_page_handler('badges', 'badge_page_handler');
 
 # add menu to the top bar if is admin
 if($user_object = get_loggedin_user()) {
     if($user_object->isAdmin()) {
         elgg_register_menu_item('topbar', array(
             'name' => 'badge_top_link',
-            'href' => 'badge/all',
+            'href' => 'badges/all',
             'title' => 'List of badges',
             'text' => 'Badges manager'
         ));
@@ -152,5 +156,5 @@ function badge_url($entity) {
 
 	$title = $entity->title;
 	$title = elgg_get_friendly_title($title);
-	return $CONFIG->url . "badge/view/" . $entity->getGUID() . "/" . $title;
+	return $CONFIG->url . "badges/view/" . $entity->getGUID() . "/" . $title;
 }

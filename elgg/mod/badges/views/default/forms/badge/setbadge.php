@@ -13,18 +13,19 @@
     {
         $user_badges=elgg_get_entities(array(
             'types'=>'object',
-            'subtypes' => 'user_badges',
-            'wheres'=>array('guid'=>$entity->guid)
+            'subtypes' => 'user_badges'
         ));
         $count=0;
         foreach($user_badges as $user_badge)
         {
-            if($user->getGuid()==$user_badge->user_id)
+            if($user->getGuid()==$user_badge->user_id && $entity->guid==$user_badge->badge_id)
                 $count++;
         }
         $userArray[$user->getGuid()]=$user->get("name")."&nbsp;(".$count.")";
     }
-
+    echo '<label>';
+    echo elgg_echo("Users");
+    echo '</label><br />';
     echo elgg_view('input/dropdown',
         array(
             'name' => 'user',

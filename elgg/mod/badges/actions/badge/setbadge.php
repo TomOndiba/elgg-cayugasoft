@@ -14,7 +14,7 @@ if($action==="Add")
     if($badges_user_guid)
     {
         system_message("Add");
-        forward("badge/all");
+        forward("badges/all");
     }
     else
     {
@@ -28,12 +28,11 @@ else
     $user_badges=elgg_get_entities(array(
         'types'=>'object',
         'subtypes' => 'user_badges',
-        'wheres'=>array('guid'=>$quid)
     ));
     $flag=false;
     foreach($user_badges as $user_badge)
     {
-        if($user_badge->user_id==$user_id)
+        if($user_badge->user_id==$user_id && $guid==$user_badge->badge_id)
         {
             if($user_badge->delete())
             {
@@ -45,7 +44,7 @@ else
     if($flag)
     {
             system_message("Deleted");
-            forward("badge/all");
+            forward("badges/all");
     }
     else
     {
