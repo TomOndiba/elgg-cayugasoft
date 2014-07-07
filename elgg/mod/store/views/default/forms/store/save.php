@@ -19,8 +19,8 @@
 </div>
 
 <div>
-    <label><?php echo elgg_echo("cost"); ?></label><br />
-    <?php echo elgg_view('input/text',array('name' => 'cost')); ?>
+    <label><?php echo elgg_echo("Price"); ?></label><br />
+    <?php echo elgg_view('input/text',array('name' => 'price')); ?>
 </div>
 
 <div>
