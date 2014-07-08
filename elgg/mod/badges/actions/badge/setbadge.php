@@ -9,6 +9,10 @@ if($action==="Add")
     $badges_user->subtype = 'user_badges';
     $badges_user->user_id = $user_id;
     $badges_user->badge_id = $guid;
+    $user_info=get_user($user_id);
+    $badge_info=get_entity($guid);
+    $user_info->points=(isset($user_info->points))?$user_info->points+$badge_info->cost:$badge_info->cost;
+    $user_info->save(); //save pomts for user
     $badges_user->access_id = ACCESS_PUBLIC;
     $badges_user_guid = $badges_user->save();
     if($badges_user_guid)

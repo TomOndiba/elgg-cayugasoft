@@ -15,6 +15,7 @@ $password2 = get_input('password2', null, false);
 $email = get_input('email');
 $name = get_input('name');
 $day_count = $date=date('Y-m-d', strtotime(get_input('day_count')))." ".date("H:i:s");
+$points=0;
 $admin = get_input('admin');
 if (is_array($admin)) {
 	$admin = $admin[0];
@@ -33,7 +34,7 @@ if (strcmp($password, $password2) != 0) {
 
 // For now, just try and register the user
 try {
-	$guid = register_user($username, $password, $name, $email,$day_count, TRUE);
+	$guid = register_user($username, $password, $name, $email,$day_count,$points, TRUE);
 
 	if ($guid) {
 		$new_user = get_entity($guid);
@@ -55,6 +56,7 @@ try {
 			$username,
 			$password,
             $day_count,
+            $points
 
 		));
 

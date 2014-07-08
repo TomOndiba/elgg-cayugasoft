@@ -46,7 +46,7 @@ function get_user_entity_as_row($guid) {
  * @return bool
  * @access private
  */
-function create_user_entity($guid, $name, $username, $password, $salt, $email, $language, $code,$day_count) {
+function create_user_entity($guid, $name, $username, $password, $salt, $email, $language, $code,$day_count,$points) {
 	global $CONFIG;
 
 	$guid = (int)$guid;
@@ -58,6 +58,7 @@ function create_user_entity($guid, $name, $username, $password, $salt, $email, $
 	$language = sanitise_string($language);
 	$code = sanitise_string($code);
     $day_count=sanitise_string($day_count);
+    $points=(int)$points;
 
 	$row = get_entity_as_row($guid);
 	if ($row) {
@@ -66,7 +67,7 @@ function create_user_entity($guid, $name, $username, $password, $salt, $email, $
 		if ($exists = get_data_row($query)) {
 			$query = "UPDATE {$CONFIG->dbprefix}users_entity
 				SET name='$name', username='$username', password='$password', salt='$salt',
-				email='$email', language='$language', code='$code',day_count='$day_count'
+				email='$email', language='$language', code='$code',day_count='$day_count',points='$points'
 				WHERE guid = $guid";
 
 			$result = update_data($query);
@@ -82,8 +83,8 @@ function create_user_entity($guid, $name, $username, $password, $salt, $email, $
 		} else {
 			// Exists query failed, attempt an insert.
 			$query = "INSERT into {$CONFIG->dbprefix}users_entity
-				(guid, name, username, password, salt, email, language, code,day_count)
-				values ($guid, '$name', '$username', '$password', '$salt', '$email', '$language', '$code','$day_count')";
+				(guid, name, username, password, salt, email, language, code,day_count,points)
+				values ($guid, '$name', '$username', '$password', '$salt', '$email', '$language', '$code','$day_count','$points')";
 
 			$result = insert_data($query);
 			if ($result !== false) {
@@ -910,7 +911,7 @@ function validate_email_address($address) {
  * @return int|false The new user's GUID; false on failure
  * @throws RegistrationException
  */
-function register_user($username, $password, $name, $email,$day_count,
+function register_user($username, $password, $name, $email,$day_count,$points,
 $allow_multiple_emails = false, $friend_guid = 0, $invitecode = '') {
 
 	// no need to trim password.
@@ -964,6 +965,7 @@ $allow_multiple_emails = false, $friend_guid = 0, $invitecode = '') {
 	$user->container_guid = 0; // Users aren't contained by anyone, even if they are admin created.
 	$user->language = get_current_language();
     $user->day_count = $day_count;
+    $user->points = $points;
     $user->save();
 	// If $friend_guid has been set, make mutual friends
 	if ($friend_guid) {

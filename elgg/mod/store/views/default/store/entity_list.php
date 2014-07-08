@@ -23,6 +23,32 @@
                 <div>&nbsp;Price:&nbsp;<?php echo $entity->price; ?></div>
             <div style="clear:both"></div>
         </div>
+        <div style="float:right">
+        <?php
+        $log_user=elgg_get_logged_in_user_entity ();
+        if($log_user->guid)
+        {
+            /*search how mutch user have points*/
+            $store_order=elgg_get_entities(array(
+                'types' => 'object',
+                'subtype' => 'user_badges',
+                'limit' => false,
+            ));
+//            var_dump($store_order);
+            $points=0;
+            foreach($store_order as $badge)
+            {
+                if($badge->user_id==$log_user->guid)
+                {
+                    //считаем
+                    $points_obj=get_entity($badge->badge_id);
+                    $points+=$points_obj->cost;
+                }
+            }
+            echo elgg_view_form('store/setorder', array(), array('entity'=>$entity,"user_points"=>is_null($log_user->points)?0:$log_user->points));
+        }
+        ?>
+        </div>
         <div style="clear:both"></div>
     </li>
     <hr>

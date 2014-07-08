@@ -10,10 +10,19 @@ elgg_register_event_handler('init', 'system', 'store_init');
  */
 function store_init() {
     elgg_register_page_handler('store/all', 'store_page_handler');
-
     $item = new ElggMenuItem('Store', elgg_echo('Store'), 'store/all');
     elgg_register_menu_item('site', $item);
+    /*order for admin*/
 }
+/**
+ * save action. allows to save new entity
+ */
+elgg_register_action('store/order_approved', elgg_get_plugins_path() . 'store/actions/store/order_approved.php', 'admin');
+/**
+ * save action. allows to save new entity
+ */
+elgg_register_action('store/setorder', elgg_get_plugins_path() . 'store/actions/store/setorder.php', 'admin');
+
 /**
  * save action. allows to save new entity
  */
@@ -36,6 +45,18 @@ elgg_register_entity_url_handler('object', 'store', 'store_url');
  * urls handler
  */
 function store_page_handler($segments) {
+
+    /**
+     * add new status
+     *
+     * @route store/orders
+     *
+     * @return bool
+     */
+    if($segments[0] == 'orders') {
+        include elgg_get_plugins_path() . 'store/pages/store/orders.php';
+        return true;
+    }
 
     /**
      * add new status
@@ -142,6 +163,12 @@ if($user_object = get_loggedin_user()) {
             'href' => 'store/all',
             'title' => 'Store list',
             'text' => 'Store manager'
+        ));
+        elgg_register_menu_item('topbar', array(
+            'name' => 'store_orders_top_link',
+            'href' => 'store/orders',
+            'title' => 'Orders from store',
+            'text' => 'Orders from store'
         ));
     }
 }

@@ -9,6 +9,7 @@ elgg_register_event_handler('init', 'system', 'badges_init');
  * Initialize page handler and site menu item
  */
 function badges_init() {
+    elgg_extend_view('js/elgg', 'badge/js');
     elgg_register_page_handler('badges/all', 'badges_page_handler');
 
     $item = new ElggMenuItem('Badges', elgg_echo('Badges'), 'badges/all');

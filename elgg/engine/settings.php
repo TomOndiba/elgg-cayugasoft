@@ -42,7 +42,7 @@ $CONFIG->dbuser = 'root';
  *
  * @global string $CONFIG->dbpass
  */
-$CONFIG->dbpass = 'furyinbox';
+$CONFIG->dbpass = '';
 
 /**
  * The database name
