@@ -911,9 +911,10 @@ function validate_email_address($address) {
  * @return int|false The new user's GUID; false on failure
  * @throws RegistrationException
  */
-function register_user($username, $password, $name, $email,$day_count,$points,
+function register_user($username, $password, $name, $email,$day_count=null,$points,
 $allow_multiple_emails = false, $friend_guid = 0, $invitecode = '') {
 
+    if(is_null($day_count)) $day_count=date("Y-m-d");
 	// no need to trim password.
 	$username = trim($username);
     $name = trim(strip_tags($name));
