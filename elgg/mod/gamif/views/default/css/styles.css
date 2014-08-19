@@ -1,0 +1,32 @@
+.gamif-table
+{
+    display: table;width:100%;
+}
+.little-table-cell
+{
+    display: table-cell;text-align: center;width:10%;
+}
+.big-table-cell
+{
+    display: table-cell;width:80%;
+}
+.text-al-center
+{
+    text-align: center;
+}
+.vert-middle
+{
+    vertical-align: middle;
+}
+.padd-ins
+{
+    padding: 0 15px
+}
+.label-line-height
+{
+    line-height: 31px;
+}
+.clear-both
+{
+    clear:both;
+}
