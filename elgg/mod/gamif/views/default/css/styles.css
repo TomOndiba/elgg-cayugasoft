@@ -4,11 +4,11 @@
 }
 .little-table-cell
 {
-    display: table-cell;text-align: center;width:10%;
+    display: table-cell;text-align: center;width:15%;
 }
 .big-table-cell
 {
-    display: table-cell;width:80%;
+    display: table-cell;width:70%;text-align: center;
 }
 .text-al-center
 {
@@ -29,4 +29,8 @@
 .clear-both
 {
     clear:both;
+}
+.input-half-width
+{
+    width:50%;
 }

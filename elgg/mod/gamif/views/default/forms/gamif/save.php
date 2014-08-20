@@ -83,18 +83,15 @@ if($gamif)
         </div>
         <div class="big-table-cell">
             <div class="padd-ins">
-                <label class="label-line-height text-al-center"><?php echo elgg_echo("Part 1"); ?></label>
-                <?php echo is_null($trainee)?elgg_view('input/text', array('name' => 'trainee[smart_month1]','style'=>'width:50%;float:right')):elgg_view('input/text', array('value'=>$trainee->smart_month1,'name' => 'trainee[smart_month1]','style'=>'width:50%;float:right'));?>
+                <?php echo is_null($trainee)?elgg_view('input/text', array('name' => 'trainee[smart_month1]','class'=>'input-half-width')):elgg_view('input/text', array('value'=>$trainee->smart_month1,'name' => 'trainee[smart_month1]','class'=>'input-half-width'));?>
                 <div class="clear-both"></div>
             </div>
             <div class="padd-ins">
-                <label class="label-line-height text-al-center"><?php echo elgg_echo("Part 2"); ?></label>
-                <?php echo is_null($trainee)?elgg_view('input/text', array('name' => 'trainee[smart_month2]','style'=>'width:50%;float:right')):elgg_view('input/text', array('value'=>$trainee->smart_month2,'name' => 'trainee[smart_month2]','style'=>'width:50%;float:right')); ?>
+                <?php echo is_null($trainee)?elgg_view('input/text', array('name' => 'trainee[smart_month2]','class'=>'input-half-width')):elgg_view('input/text', array('value'=>$trainee->smart_month2,'name' => 'trainee[smart_month2]','class'=>'input-half-width')); ?>
                 <div class="clear-both"></div>
             </div>
             <div class="padd-ins">
-                <label class="label-line-height text-al-center"><?php echo elgg_echo("Part 3"); ?></label>
-                <?php echo is_null($trainee)?elgg_view('input/text', array('name' => 'trainee[smart_month3]','style'=>'width:50%;float:right')):elgg_view('input/text', array('value'=>$trainee->smart_month3,'name' => 'trainee[smart_month3]','style'=>'width:50%;float:right')); ?>
+                <?php echo is_null($trainee)?elgg_view('input/text', array('name' => 'trainee[smart_month3]','class'=>'input-half-width')):elgg_view('input/text', array('value'=>$trainee->smart_month3,'name' => 'trainee[smart_month3]','class'=>'input-half-width')); ?>
                 <div class="clear-both"></div>
             </div>
         </div>
@@ -120,18 +117,15 @@ if($gamif)
         </div>
         <div class="big-table-cell">
             <div class="padd-ins">
-                <label class="label-line-height text-al-center"><?php echo elgg_echo("Part 1"); ?></label>
-                <?php echo is_null($junior)?elgg_view('input/text', array('name' => 'junior[smart_month1]','style'=>'width:50%;float:right')):elgg_view('input/text', array('value'=>$junior->smart_month1,'name' => 'junior[smart_month1]','style'=>'width:50%;float:right')); ?>
+                <?php echo is_null($junior)?elgg_view('input/text', array('name' => 'junior[smart_month1]','class'=>'input-half-width')):elgg_view('input/text', array('value'=>$junior->smart_month1,'name' => 'junior[smart_month1]','class'=>'input-half-width')); ?>
                 <div class="clear-both"></div>
             </div>
             <div class="padd-ins">
-                <label class="label-line-height text-al-center"><?php echo elgg_echo("Part 2"); ?></label>
-                <?php echo is_null($junior)?elgg_view('input/text', array('name' => 'junior[smart_month2]','style'=>'width:50%;float:right')):elgg_view('input/text', array('value'=>$junior->smart_month2,'name' => 'junior[smart_month2]','style'=>'width:50%;float:right')); ?>
+                <?php echo is_null($junior)?elgg_view('input/text', array('name' => 'junior[smart_month2]','class'=>'input-half-width')):elgg_view('input/text', array('value'=>$junior->smart_month2,'name' => 'junior[smart_month2]','class'=>'input-half-width')); ?>
                 <div class="clear-both"></div>
             </div>
             <div class="padd-ins">
-                <label class="label-line-height text-al-center"><?php echo elgg_echo("Part 3"); ?></label>
-                <?php echo is_null($junior)?elgg_view('input/text', array('name' => 'junior[smart_month3]','style'=>'width:50%;float:right')):elgg_view('input/text', array('value'=>$junior->smart_month3,'name' => 'junior[smart_month3]','style'=>'width:50%;float:right')); ?>
+                <?php echo is_null($junior)?elgg_view('input/text', array('name' => 'junior[smart_month3]','class'=>'input-half-width')):elgg_view('input/text', array('value'=>$junior->smart_month3,'name' => 'junior[smart_month3]','class'=>'input-half-width')); ?>
                 <div class="clear-both"></div>
             </div>
         </div>
@@ -157,18 +151,15 @@ if($gamif)
         </div>
         <div class="big-table-cell">
             <div class="padd-ins">
-                <label class="label-line-height text-al-center"><?php echo elgg_echo("Part 1"); ?></label>
-                <?php echo is_null($junior_middle)?elgg_view('input/text', array('name' => 'junior_middle[smart_month1]','style'=>'width:50%;float:right')):elgg_view('input/text', array('value'=>$junior_middle->smart_month1,'name' => 'junior_middle[smart_month1]','style'=>'width:50%;float:right')); ?>
+                <?php echo is_null($junior_middle)?elgg_view('input/text', array('name' => 'junior_middle[smart_month1]','class'=>'input-half-width')):elgg_view('input/text', array('value'=>$junior_middle->smart_month1,'name' => 'junior_middle[smart_month1]','class'=>'input-half-width')); ?>
                 <div class="clear-both"></div>
             </div>
             <div class="padd-ins">
-                <label class="label-line-height text-al-center"><?php echo elgg_echo("Part 2"); ?></label>
-                <?php echo is_null($junior_middle)?elgg_view('input/text', array('name' => 'junior_middle[smart_month2]','style'=>'width:50%;float:right')):elgg_view('input/text', array('value'=>$junior_middle->smart_month2,'name' => 'junior_middle[smart_month2]','style'=>'width:50%;float:right')); ?>
+                <?php echo is_null($junior_middle)?elgg_view('input/text', array('name' => 'junior_middle[smart_month2]','class'=>'input-half-width')):elgg_view('input/text', array('value'=>$junior_middle->smart_month2,'name' => 'junior_middle[smart_month2]','class'=>'input-half-width')); ?>
                 <div class="clear-both"></div>
             </div>
             <div class="padd-ins">
-                <label class="label-line-height text-al-center"><?php echo elgg_echo("Part 3"); ?></label>
-                <?php echo is_null($junior_middle)?elgg_view('input/text', array('name' => 'junior_middle[smart_month3]','style'=>'width:50%;float:right')):elgg_view('input/text', array('value'=>$junior_middle->smart_month3,'name' => 'junior_middle[smart_month3]','style'=>'width:50%;float:right')); ?>
+                <?php echo is_null($junior_middle)?elgg_view('input/text', array('name' => 'junior_middle[smart_month3]','class'=>'input-half-width')):elgg_view('input/text', array('value'=>$junior_middle->smart_month3,'name' => 'junior_middle[smart_month3]','class'=>'input-half-width')); ?>
                 <div class="clear-both"></div>
             </div>
         </div>
@@ -194,18 +185,15 @@ if($gamif)
         </div>
         <div class="big-table-cell">
             <div class="padd-ins">
-                <label class="label-line-height text-al-center"><?php echo elgg_echo("Part 1"); ?></label>
-                <?php echo is_null($middle)?elgg_view('input/text', array('name' => 'middle[smart_month1]','style'=>'width:50%;float:right')):elgg_view('input/text', array('value'=>$middle->smart_month1,'name' => 'middle[smart_month1]','style'=>'width:50%;float:right')); ?>
+                <?php echo is_null($middle)?elgg_view('input/text', array('name' => 'middle[smart_month1]','class'=>'input-half-width')):elgg_view('input/text', array('value'=>$middle->smart_month1,'name' => 'middle[smart_month1]','class'=>'input-half-width')); ?>
                 <div class="clear-both"></div>
             </div>
             <div class="padd-ins">
-                <label class="label-line-height text-al-center"><?php echo elgg_echo("Part 2"); ?></label>
-                <?php echo is_null($middle)?elgg_view('input/text', array('name' => 'middle[smart_month2]','style'=>'width:50%;float:right')):elgg_view('input/text', array('value'=>$middle->smart_month2,'name' => 'middle[smart_month2]','style'=>'width:50%;float:right')); ?>
+                <?php echo is_null($middle)?elgg_view('input/text', array('name' => 'middle[smart_month2]','class'=>'input-half-width')):elgg_view('input/text', array('value'=>$middle->smart_month2,'name' => 'middle[smart_month2]','class'=>'input-half-width')); ?>
                 <div class="clear-both"></div>
             </div>
             <div class="padd-ins">
-                <label class="label-line-height text-al-center"><?php echo elgg_echo("Part 3"); ?></label>
-                <?php echo is_null($middle)?elgg_view('input/text', array('name' => 'middle[smart_month3]','style'=>'width:50%;float:right')):elgg_view('input/text', array('value'=>$middle->smart_month3,'name' => 'middle[smart_month3]','style'=>'width:50%;float:right')); ?>
+                <?php echo is_null($middle)?elgg_view('input/text', array('name' => 'middle[smart_month3]','class'=>'input-half-width')):elgg_view('input/text', array('value'=>$middle->smart_month3,'name' => 'middle[smart_month3]','class'=>'input-half-width')); ?>
                 <div class="clear-both"></div>
             </div>
         </div>
@@ -231,18 +219,15 @@ if($gamif)
         </div>
         <div class="big-table-cell">
             <div class="padd-ins">
-                <label class="label-line-height text-al-center"><?php echo elgg_echo("Part 1"); ?></label>
-                <?php echo is_null($middle_senior)?elgg_view('input/text', array('name' => 'middle_senior[smart_month1]','style'=>'width:50%;float:right')):elgg_view('input/text', array('value'=>$middle_senior->smart_month1,'name' => 'middle_senior[smart_month1]','style'=>'width:50%;float:right')); ?>
+                <?php echo is_null($middle_senior)?elgg_view('input/text', array('name' => 'middle_senior[smart_month1]','class'=>'input-half-width')):elgg_view('input/text', array('value'=>$middle_senior->smart_month1,'name' => 'middle_senior[smart_month1]','class'=>'input-half-width')); ?>
                 <div class="clear-both"></div>
             </div>
             <div class="padd-ins">
-                <label class="label-line-height text-al-center"><?php echo elgg_echo("Part 2"); ?></label>
-                <?php echo is_null($middle_senior)?elgg_view('input/text', array('name' => 'middle_senior[smart_month2]','style'=>'width:50%;float:right')):elgg_view('input/text', array('value'=>$middle_senior->smart_month2,'name' => 'middle_senior[smart_month2]','style'=>'width:50%;float:right')); ?>
+                <?php echo is_null($middle_senior)?elgg_view('input/text', array('name' => 'middle_senior[smart_month2]','class'=>'input-half-width')):elgg_view('input/text', array('value'=>$middle_senior->smart_month2,'name' => 'middle_senior[smart_month2]','class'=>'input-half-width')); ?>
                 <div class="clear-both"></div>
             </div>
             <div class="padd-ins">
-                <label class="label-line-height text-al-center"><?php echo elgg_echo("Part 3"); ?></label>
-                <?php echo is_null($middle_senior)?elgg_view('input/text', array('name' => 'middle_senior[smart_month3]','style'=>'width:50%;float:right')):elgg_view('input/text', array('value'=>$middle_senior->smart_month3,'name' => 'middle_senior[smart_month3]','style'=>'width:50%;float:right')); ?>
+                <?php echo is_null($middle_senior)?elgg_view('input/text', array('name' => 'middle_senior[smart_month3]','class'=>'input-half-width')):elgg_view('input/text', array('value'=>$middle_senior->smart_month3,'name' => 'middle_senior[smart_month3]','class'=>'input-half-width')); ?>
                 <div class="clear-both"></div>
             </div>
         </div>
@@ -268,18 +253,15 @@ if($gamif)
         </div>
         <div class="big-table-cell">
             <div class="padd-ins">
-                <label class="label-line-height text-al-center"><?php echo elgg_echo("Part 1"); ?></label>
-                <?php echo is_null($senior)?elgg_view('input/text', array('name' => 'senior[smart_month1]','style'=>'width:50%;float:right')):elgg_view('input/text', array('value'=>$senior->smart_month1,'name' => 'senior[smart_month1]','style'=>'width:50%;float:right')); ?>
+                <?php echo is_null($senior)?elgg_view('input/text', array('name' => 'senior[smart_month1]','class'=>'input-half-width')):elgg_view('input/text', array('value'=>$senior->smart_month1,'name' => 'senior[smart_month1]','class'=>'input-half-width')); ?>
                 <div class="clear-both"></div>
             </div>
             <div class="padd-ins">
-                <label class="label-line-height text-al-center"><?php echo elgg_echo("Part 2"); ?></label>
-                <?php echo is_null($senior)?elgg_view('input/text', array('name' => 'senior[smart_month2]','style'=>'width:50%;float:right')):elgg_view('input/text', array('value'=>$senior->smart_month2,'name' => 'senior[smart_month2]','style'=>'width:50%;float:right')); ?>
+                <?php echo is_null($senior)?elgg_view('input/text', array('name' => 'senior[smart_month2]','class'=>'input-half-width')):elgg_view('input/text', array('value'=>$senior->smart_month2,'name' => 'senior[smart_month2]','class'=>'input-half-width')); ?>
                 <div class="clear-both"></div>
             </div>
             <div class="padd-ins">
-                <label class="label-line-height text-al-center"><?php echo elgg_echo("Part 3"); ?></label>
-                <?php echo is_null($senior)?elgg_view('input/text', array('name' => 'senior[smart_month3]','style'=>'width:50%;float:right')):elgg_view('input/text', array('value'=>$senior->smart_month3,'name' => 'senior[smart_month3]','style'=>'width:50%;float:right')); ?>
+                <?php echo is_null($senior)?elgg_view('input/text', array('name' => 'senior[smart_month3]','class'=>'input-half-width')):elgg_view('input/text', array('value'=>$senior->smart_month3,'name' => 'senior[smart_month3]','class'=>'input-half-width')); ?>
                 <div class="clear-both"></div>
             </div>
         </div>
@@ -305,18 +287,15 @@ if($gamif)
         </div>
         <div class="big-table-cell">
             <div class="padd-ins">
-                <label class="label-line-height text-al-center"><?php echo elgg_echo("Part 1"); ?></label>
-                <?php echo is_null($senior_lead)?elgg_view('input/text', array('name' => 'senior_lead[smart_month1]','style'=>'width:50%;float:right')):elgg_view('input/text', array('value'=>$senior_lead->smart_month1,'name' => 'senior_lead[smart_month1]','style'=>'width:50%;float:right')); ?>
+                <?php echo is_null($senior_lead)?elgg_view('input/text', array('name' => 'senior_lead[smart_month1]','class'=>'input-half-width')):elgg_view('input/text', array('value'=>$senior_lead->smart_month1,'name' => 'senior_lead[smart_month1]','class'=>'input-half-width')); ?>
                 <div class="clear-both"></div>
             </div>
             <div class="padd-ins">
-                <label class="label-line-height text-al-center"><?php echo elgg_echo("Part 2"); ?></label>
-                <?php echo is_null($senior_lead)?elgg_view('input/text', array('name' => 'senior_lead[smart_month2]','style'=>'width:50%;float:right')):elgg_view('input/text', array('value'=>$senior_lead->smart_month2,'name' => 'senior_lead[smart_month2]','style'=>'width:50%;float:right')); ?>
+                <?php echo is_null($senior_lead)?elgg_view('input/text', array('name' => 'senior_lead[smart_month2]','class'=>'input-half-width')):elgg_view('input/text', array('value'=>$senior_lead->smart_month2,'name' => 'senior_lead[smart_month2]','class'=>'input-half-width')); ?>
                 <div class="clear-both"></div>
             </div>
             <div class="padd-ins">
-                <label class="label-line-height text-al-center"><?php echo elgg_echo("Part 3"); ?></label>
-                <?php echo is_null($senior_lead)?elgg_view('input/text', array('name' => 'senior_lead[smart_month3]','style'=>'width:50%;float:right')):elgg_view('input/text', array('value'=>$senior_lead->smart_month3,'name' => 'senior_lead[smart_month3]','style'=>'width:50%;float:right')); ?>
+                <?php echo is_null($senior_lead)?elgg_view('input/text', array('name' => 'senior_lead[smart_month3]','class'=>'input-half-width')):elgg_view('input/text', array('value'=>$senior_lead->smart_month3,'name' => 'senior_lead[smart_month3]','class'=>'input-half-width')); ?>
                 <div class="clear-both"></div>
             </div>
         </div>
@@ -343,18 +322,15 @@ if($gamif)
         </div>
         <div class="big-table-cell">
             <div class="padd-ins">
-                <label class="label-line-height text-al-center"><?php echo elgg_echo("Part 1"); ?></label>
-                <?php echo is_null($lead)?elgg_view('input/text', array('name' => 'lead[smart_month1]','style'=>'width:50%;float:right')):elgg_view('input/text', array('value'=>$lead->smart_month1,'name' => 'lead[smart_month1]','style'=>'width:50%;float:right')); ?>
+                <?php echo is_null($lead)?elgg_view('input/text', array('name' => 'lead[smart_month1]','class'=>'input-half-width')):elgg_view('input/text', array('value'=>$lead->smart_month1,'name' => 'lead[smart_month1]','class'=>'input-half-width')); ?>
                 <div class="clear-both"></div>
             </div>
             <div class="padd-ins">
-                <label class="label-line-height text-al-center"><?php echo elgg_echo("Part 2"); ?></label>
-                <?php echo is_null($lead)?elgg_view('input/text', array('name' => 'lead[smart_month2]','style'=>'width:50%;float:right')):elgg_view('input/text', array('value'=>$lead->smart_month2,'name' => 'lead[smart_month2]','style'=>'width:50%;float:right')); ?>
+                <?php echo is_null($lead)?elgg_view('input/text', array('name' => 'lead[smart_month2]','class'=>'input-half-width')):elgg_view('input/text', array('value'=>$lead->smart_month2,'name' => 'lead[smart_month2]','class'=>'input-half-width')); ?>
                 <div class="clear-both"></div>
             </div>
             <div class="padd-ins">
-                <label class="label-line-height text-al-center"><?php echo elgg_echo("Part 3"); ?></label>
-                <?php echo is_null($lead)?elgg_view('input/text', array('name' => 'lead[smart_month3]','style'=>'width:50%;float:right')):elgg_view('input/text', array('value'=>$lead->smart_month3,'name' => 'lead[smart_month3]','style'=>'width:50%;float:right')); ?>
+                <?php echo is_null($lead)?elgg_view('input/text', array('name' => 'lead[smart_month3]','class'=>'input-half-width')):elgg_view('input/text', array('value'=>$lead->smart_month3,'name' => 'lead[smart_month3]','class'=>'input-half-width')); ?>
                 <div class="clear-both"></div>
             </div>
         </div>
@@ -380,18 +356,15 @@ if($gamif)
         </div>
         <div class="big-table-cell">
             <div class="padd-ins">
-                <label class="label-line-height text-al-center"><?php echo elgg_echo("Part 1"); ?></label>
-                <?php echo is_null($tech_officer)?elgg_view('input/text', array('name' => 'tech_officer[smart_month1]','style'=>'width:50%;float:right')):elgg_view('input/text', array('value'=>$tech_officer->smart_month1,'name' => 'tech_officer[smart_month1]','style'=>'width:50%;float:right')); ?>
+                <?php echo is_null($tech_officer)?elgg_view('input/text', array('name' => 'tech_officer[smart_month1]','class'=>'input-half-width')):elgg_view('input/text', array('value'=>$tech_officer->smart_month1,'name' => 'tech_officer[smart_month1]','class'=>'input-half-width')); ?>
                 <div class="clear-both"></div>
             </div>
             <div class="padd-ins">
-                <label class="label-line-height text-al-center"><?php echo elgg_echo("Part 2"); ?></label>
-                <?php echo is_null($tech_officer)?elgg_view('input/text', array('name' => 'tech_officer[smart_month2]','style'=>'width:50%;float:right')):elgg_view('input/text', array('value'=>$tech_officer->smart_month2,'name' => 'tech_officer[smart_month2]','style'=>'width:50%;float:right')); ?>
+                <?php echo is_null($tech_officer)?elgg_view('input/text', array('name' => 'tech_officer[smart_month2]','class'=>'input-half-width')):elgg_view('input/text', array('value'=>$tech_officer->smart_month2,'name' => 'tech_officer[smart_month2]','class'=>'input-half-width')); ?>
                 <div class="clear-both"></div>
             </div>
             <div class="padd-ins">
-                <label class="label-line-height text-al-center"><?php echo elgg_echo("Part 3"); ?></label>
-                <?php echo is_null($tech_officer)?elgg_view('input/text', array('name' => 'tech_officer[smart_month3]','style'=>'width:50%;float:right')):elgg_view('input/text', array('value'=>$tech_officer->smart_month3,'name' => 'tech_officer[smart_month3]','style'=>'width:50%;float:right')); ?>
+                <?php echo is_null($tech_officer)?elgg_view('input/text', array('name' => 'tech_officer[smart_month3]','class'=>'input-half-width')):elgg_view('input/text', array('value'=>$tech_officer->smart_month3,'name' => 'tech_officer[smart_month3]','class'=>'input-half-width')); ?>
                 <div class="clear-both"></div>
             </div>
         </div>
