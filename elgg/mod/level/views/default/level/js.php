@@ -2,17 +2,39 @@
 // force the first column to at least be as large as the profile box in cols 2 and 3
 // we also want to run before the widget init happens so priority is < 500
 elgg.register_hook_handler('init', 'system', function() {
-   /* var title= ['1':{'2':'Youngling'},{'8':'Padawan'},{'17':'Jedi'},{'29':'Jedi Survivor'},{'44':'Jedi Knight'},{'56':'Master Jedi'},{'68':"The Chosen One"},{'80':"Yoda"},{'104':"Darth Vader"},
-'2':{'2':'Pixie'},{'8':'Tinker Bell'},{'17':'Nymph'},{'29':'Fairy'},{'44':'Djinni'},{'56':'Witch'},{'68':'Snow Queen'},{'80':'Cruella De Vil'},
-'3':{},
-'4':{'2':'Gremlin'},{'8':'Elf'},{'17':'Leprechaun'},{'29':'Warlock'},{'44':'Whitelighter'},{'56':'Sorcerer'},{'68':'Triad'},{'80':'Merlin'},
-'5':{'2':''},{'8':'Baroness'},{'17':'Viscountess'},{'29':'Countess'},{'44':'Marchioness'},{'56':'Duchess'},{'68':'Princess'},{'80':'Queen'}]
+    var title={ "Developers": ["Youngling","Padawan","Jedi","Jedi Survivor","Jedi Knight","Master Jedi","The Chosen One","Yoda","Darth Vader"],
+                "PM":["Pixie","Tinker", "Bell","Nymph","Fairy","Djinni","Witch","Snow Queen","Cruella De Vil"],
+                "Designer":[],
+                "QA":["Gremlin","Elf","Leprechaun","Warlock","Whitelighter","Sorcerer","Triad","Merlin"],
+                "Sales managers":{"male":["Baron","Viscount","Earl","Marquess","Duke","Prince","King"],
+                                "female":["Baroness","Viscountess","Countess","Marchioness","Duchess","Princess","Queen"]}};
+    $('input[name=was_flag]:checkbox').change(function () {
+        if($(this).attr("checked")=="checked")
+        {
+            var d = new Date();
+            var curr_month = d.getMonth() + 1;
+            curr_month =curr_month  < 10 ? '0' + curr_month  : curr_month ;
+            $("input[name=work_count]").attr("disabled",false).val(curr_month+"/"+d.getDate()+"/"+d.getFullYear())
+        }
+        else  {
+            $("input[name=work_count]").attr("disabled",true).val("")
+            }
 
-    var level=[{'2':'Low'},{'2':'Normal'},{'2':'High'}]*/
-    $("select[name=job_type]").live("onchange",function()
+
+    });
+    $("select[name=job_type]").change(function()
     {
-        var val=$(this).val()
-        cosnole.log(val);
+        var val=$(this).val();
+        if(title[val].length>0)
+        {
+            var newopt="";
+            for(var i=0;i<title[val].length;i++)
+                newopt+="<option value='"+title[val][i]+"'>"+title[val][i]+"</option>";
+            $("select[name=job_title]").empty().append(newopt)
+        }
+        else {
+
+        }
     })
     // only do this on the profile page's widget canvas.
 	if ($('.profile').length) {

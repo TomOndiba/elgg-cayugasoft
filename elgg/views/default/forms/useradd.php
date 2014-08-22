@@ -90,5 +90,6 @@ if (elgg_is_sticky_form('useradd')) {
     $(document).ready(function()
     {
         $("input[name=day_count]").datepicker();
+        $("input[name=work_count]").datepicker();
     })
 </script>
