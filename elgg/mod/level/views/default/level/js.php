@@ -8,20 +8,7 @@ elgg.register_hook_handler('init', 'system', function() {
                 "QA":["Gremlin","Elf","Leprechaun","Warlock","Whitelighter","Sorcerer","Triad","Merlin"],
                 "Sales managers":{"male":["Baron","Viscount","Earl","Marquess","Duke","Prince","King"],
                                 "female":["Baroness","Viscountess","Countess","Marchioness","Duchess","Princess","Queen"]}};
-    $('input[name=was_flag]:checkbox').change(function () {
-        if($(this).attr("checked")=="checked")
-        {
-            var d = new Date();
-            var curr_month = d.getMonth() + 1;
-            curr_month =curr_month  < 10 ? '0' + curr_month  : curr_month ;
-            $("input[name=work_count]").attr("disabled",false).val(curr_month+"/"+d.getDate()+"/"+d.getFullYear())
-        }
-        else  {
-            $("input[name=work_count]").attr("disabled",true).val("")
-            }
 
-
-    });
     $("select[name=job_type]").change(function()
     {
         var val=$(this).val();

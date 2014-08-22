@@ -46,7 +46,7 @@ function get_user_entity_as_row($guid) {
  * @return bool
  * @access private
  */
-function create_user_entity($guid, $name, $username, $password, $salt, $email, $language, $code,$day_count,$points) {
+function create_user_entity($guid, $name, $username, $password, $salt, $email, $language, $code,$day_count,$points,$was_flag,$work_count,$job_type,$job_title,$level,$start_month) {
 	global $CONFIG;
 
 	$guid = (int)$guid;
@@ -59,6 +59,12 @@ function create_user_entity($guid, $name, $username, $password, $salt, $email, $
 	$code = sanitise_string($code);
     $day_count=sanitise_string($day_count);
     $points=(int)$points;
+    $was_flag=(int)$was_flag;
+    $work_count=sanitise_string($work_count);
+    $job_type=sanitise_string($job_type);
+    $job_title=sanitise_string($job_title);
+    $level=sanitise_string($level);
+    $start_month=(float)($start_month);
 
 	$row = get_entity_as_row($guid);
 	if ($row) {
@@ -67,7 +73,7 @@ function create_user_entity($guid, $name, $username, $password, $salt, $email, $
 		if ($exists = get_data_row($query)) {
 			$query = "UPDATE {$CONFIG->dbprefix}users_entity
 				SET name='$name', username='$username', password='$password', salt='$salt',
-				email='$email', language='$language', code='$code',day_count='$day_count',points='$points'
+				email='$email', language='$language', code='$code',day_count='$day_count',points='$points',was_flag='$was_flag',work_count='$work_count',job_type='$job_type',job_title='$job_title',level='$level',start_month='$start_month'
 				WHERE guid = $guid";
 
 			$result = update_data($query);
@@ -83,8 +89,8 @@ function create_user_entity($guid, $name, $username, $password, $salt, $email, $
 		} else {
 			// Exists query failed, attempt an insert.
 			$query = "INSERT into {$CONFIG->dbprefix}users_entity
-				(guid, name, username, password, salt, email, language, code,day_count,points)
-				values ($guid, '$name', '$username', '$password', '$salt', '$email', '$language', '$code','$day_count','$points')";
+				(guid, name, username, password, salt, email, language, code,day_count,points,was_flag,work_count,job_type,job_title,level,start_month)
+				values ($guid, '$name', '$username', '$password', '$salt', '$email', '$language', '$code','$day_count','$points', '$was_flag','$work_count','$job_type','$job_title','$level','$start_month')";
 
 			$result = insert_data($query);
 			if ($result !== false) {
@@ -911,21 +917,27 @@ function validate_email_address($address) {
  * @return int|false The new user's GUID; false on failure
  * @throws RegistrationException
  */
-function register_user($username, $password, $name, $email,$day_count=null,$points,
+function register_user($username, $password, $name, $email,$day_count=null,$points,$was_flag,$work_count=null,$job_type,$job_title,$level,$start_month,
 $allow_multiple_emails = false, $friend_guid = 0, $invitecode = '') {
-
+//    die(var_dump($was_flag." | ".$work_count." | ".$job_type." | ".$job_title." | ".$level." | ".$start_month));
     if(is_null($day_count)) $day_count=date("Y-m-d");
 	// no need to trim password.
 	$username = trim($username);
     $name = trim(strip_tags($name));
 	$email = trim($email);
 
+
 	// A little sanity checking
 	if (empty($username)
 	|| empty($password)
 	|| empty($name)
 	|| empty($email)
-    || empty($day_count)) {
+    || empty($day_count)
+    || empty($job_type)
+    || empty($job_title)
+    || empty($level)
+    || empty($start_month)
+    ) {
 		return false;
 	}
 	// Make sure a user with conflicting details hasn't registered and been disabled
@@ -967,6 +979,14 @@ $allow_multiple_emails = false, $friend_guid = 0, $invitecode = '') {
 	$user->language = get_current_language();
     $user->day_count = $day_count;
     $user->points = $points;
+    $user->was_flag = $was_flag;
+    $user->work_count = $work_count;
+    $user->job_type = $job_type;
+    $user->job_title = $job_title;
+    $user->level = $level;
+    $user->start_month = $start_month;
+//    die();
+//    die(var_dump($user));
     $user->save();
 	// If $friend_guid has been set, make mutual friends
 	if ($friend_guid) {

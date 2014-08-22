@@ -136,7 +136,12 @@ class ElggUser extends ElggEntity
 		_elgg_disable_caching_for_entity($this->guid);
 		$ret = create_user_entity($this->get('guid'), $this->get('name'), $this->get('username'),
 			$this->get('password'), $this->get('salt'), $this->get('email'), $this->get('language'),
-			$this->get('code'),$this->get('day_count'),$this->get('points'));
+			$this->get('code'),$this->get('day_count'),$this->get('points'),$this->get('was_flag'),$this->get('work_count'),
+            $this->get('job_type'),
+            $this->get('job_title'),
+            $this->get('level'),
+            $this->get('start_month')
+            );
 		_elgg_enable_caching_for_entity($this->guid);
 		return $ret;
 	}

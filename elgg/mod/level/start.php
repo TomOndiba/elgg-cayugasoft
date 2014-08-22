@@ -14,8 +14,8 @@ function level_init() {
     elgg_extend_view('css/elgg', 'level/css');
     elgg_extend_view('js/elgg', 'level/js');
     elgg_extend_view('js', 'level/js');
-    elgg_register_plugin_hook_handler('view', 'forms/useradd', 'user_add_template');
-    elgg_register_event_handler('create', 'user', 'creds_create_user');
+//    elgg_register_plugin_hook_handler('view', 'forms/useradd', 'user_add_template');
+//    elgg_register_event_handler('create', 'user', 'creds_create_user');
 
 //    elgg_register_plugin_hook_handler('action', 'admin/useradd', 'useradd');
 }
@@ -92,6 +92,7 @@ function user_add_template($hook, $type, $returnvalue, $params) {
     }
     else
     {
+        return $returnvalue;
         /*if user already worked */
         $str_to_insert='<div>
         <ul class="elgg-input-checkboxes elgg-vertical"><li><label>';

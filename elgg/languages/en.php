@@ -262,6 +262,12 @@ $english = array(
 	'passwordagain' => "Password (again for verification)",
     'day_count' => "Counter of days worked in the company",
 	'admin_option' => "Make this user an admin?",
+    'was_flag' => "User already work?",
+    'work_count' => "Count from number",
+    "job_type"=>"Job type",
+    "job_title"=>"Job Title",
+    "level"=>"Job level",
+    "start_month"=>"Started month",
 
 /**
  * Access

@@ -14,7 +14,15 @@ $password = get_input('password', null, false);
 $password2 = get_input('password2', null, false);
 $email = get_input('email');
 $name = get_input('name');
-$day_count = $date=date('Y-m-d', strtotime(get_input('day_count')))." ".date("H:i:s");
+$day_count = date('Y-m-d', strtotime(get_input('day_count')))." ".date("H:i:s");
+/*new field*/
+$was_flag =get_input('was_flag');
+if(get_input('work_count')!=="") $work_count=date('Y-m-d', strtotime(get_input('work_count')))." ".date("H:i:s");
+$job_type=get_input('job_type');
+$job_title=get_input('job_title');
+$level=get_input('level');
+$start_month=get_input('start_month');
+/**/
 $points=0;
 $admin = get_input('admin');
 if (is_array($admin)) {
@@ -34,7 +42,7 @@ if (strcmp($password, $password2) != 0) {
 
 // For now, just try and register the user
 try {
-	$guid = register_user($username, $password, $name, $email,$day_count,$points, TRUE);
+	$guid = register_user($username, $password, $name, $email,$day_count,$points, $was_flag,$work_count,$job_type,$job_title,$level,$start_month, TRUE);
 
 	if ($guid) {
 		$new_user = get_entity($guid);
@@ -56,9 +64,14 @@ try {
 			$username,
 			$password,
             $day_count,
-            $points
-
-		));
+            $points,
+            $was_flag,
+            $work_count,
+            $job_type,
+            $job_title,
+            $level,
+            $start_month,
+            ));
 
 		notify_user($new_user->guid, elgg_get_site_entity()->guid, $subject, $body);
 
